@@ -1,0 +1,42 @@
+name: Vibe-free certification
+description: Certify pull requests from an explicit, auditable author declaration
+author: vibe-free-certification contributors
+
+branding:
+  icon: check-circle
+  color: green
+
+inputs:
+  github-token:
+    description: Token used to create and update pull request labels
+    required: true
+  no-vibecode-label:
+    description: Label applied when the author understands, has tested, and can explain the change
+    required: false
+    default: no vibecode added
+  organic-label:
+    description: Additional label applied when no generative AI produced code for the pull request
+    required: false
+    default: bio organic
+  create-labels:
+    description: Create the certification labels when they do not exist
+    required: false
+    default: "true"
+  fail-on-unverified:
+    description: Fail the action when the declaration is incomplete or the pull request is a draft
+    required: false
+    default: "false"
+
+outputs:
+  result:
+    description: One of certified-organic, certified, unverified, or draft
+  certified:
+    description: Whether the no-vibecode certification was granted
+  organic:
+    description: Whether the bio-organic certification was granted
+  reasons:
+    description: Semicolon-separated reasons why certification was not granted
+
+runs:
+  using: node24
+  main: src/index.js
