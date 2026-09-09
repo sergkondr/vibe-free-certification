@@ -1,0 +1,13 @@
+{
+  "name": "vibe-free-certification",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A transparent GitHub Action for pull request vibe-free certification",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
